@@ -1,13 +1,13 @@
 # GIPHY-API
 
-**Project Purpose**  
+## Project Purpose 
 The is an app that renders playable gifs for the user to enjoy.
 
 ## Demo
 <img src=''><br> <--Update after putting in portfolio
 [Click here to start](https://mkd454.github.io/GIPHY-API/)
 
-**Getting Started**  
+## Getting Started 
 ````
 git clone git@github.com:mkd454/GIPHY-API.git
 open index.html in your preferred browser
@@ -30,16 +30,16 @@ open index.html in your preferred browser
 - [Bootstrap](https://getbootstrap.com/)
 - [jQuery](https://jquery.com/download/)
 
-**Where users can get help with this project**  
+## Where users can get help with this project
 If you need assistance, please reach out to this email with your questions and concerns: <dangmaryk@gmail.com>.
 
-**Who maintains and contributes to this project**  
+## Who maintains and contributes to this project 
 Mary Dang  
 Github Repository link: <https://github.com/mkd454/GIPHY-API>  
 Github page link: <https://mkd454.github.io/GIPHY-API/>  
 Bootstrap Portfolio link: <https://mkd454.github.io/Bootstrap-Portfolio/>
 
-### Task List
+## Task List
 - [ ] Before you can make any part of our site work, you need to create an array of strings, each one related to a topic that interests you. Save it to a variable called `topics`.
    * We chose animals for our theme, but you can make a list to your own liking.
 
