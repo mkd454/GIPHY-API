@@ -3,13 +3,13 @@ $(document).ready(function() {
   var topics = ["Meerkat","Hamster","Hedgehog","Mouse"];
 
   //New input
-  $("#newTopicButton").on("click", function(e){
+  $(document).on("click", "#newTopicButton", function(e){
     e.preventDefault();
 
     var newTopic = $("#newTopic").val().trim();
     topics.push(newTopic);
     renderButtons(topics);
-    $("input").attr("value","");
+    $("#newTopic").empty();
   })
 
   //Create a button for every animal in the array
@@ -30,48 +30,49 @@ $(document).ready(function() {
     event.preventDefault();
     var topic = $(this).val();
     $("#imageDiv").empty();
-        
-    // Obtain the images
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=QnzDlWk2f0g5uDP7pBQBvvPWePLlTqpi&q=" + topic + "&limit=10";
+  })
 
-    $.ajax({
-      url:queryURL,
-      method: "GET"
-    }).then(function(response) {
-      var results = response.data;
+  // Obtain the images
+  var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=QnzDlWk2f0g5uDP7pBQBvvPWePLlTqpi&q=" + topic + "&limit=10";
 
-      for(var i=0;i<results.length;i++) {
-        var rating = results[i].rating;
-        var stillImage = results[i].images.original_still.url;
-        var animateImage = results[i].images.original.url;
-        var state = "still";
+  $.ajax({
+    url:queryURL,
+    method: "GET"
+  }).then(function(response) {
+    var results = response.data;
 
-        var newDiv = $("<div>");
-        var p = $("<p>");
-        p.text("Rating: " + rating);
-        var image = $("<img>");
-        image.attr("data-still",stillImage);
-        image.attr("data-animate",animateImage);
-        image.attr("data-state",state);
-        image.attr("src", stillImage);
-        image.addClass("gif");
+    for(var i=0;i<results.length;i++) {
+      var rating = results[i].rating;
+      var stillImage = results[i].images.original_still.url;
+      var animateImage = results[i].images.original.url;
+      var state = "still";
 
-        newDiv.append(p,image);
-        $("#imageDiv").prepend(newDiv);
+      var newDiv = $("<div>");
+      var p = $("<p>");
+      p.text("Rating: " + rating);
+      var image = $("<img>");
+      image.attr("data-still",stillImage);
+      image.attr("data-animate",animateImage);
+      image.attr("data-state",state);
+      image.attr("src", stillImage);
+      image.addClass("gif");
+
+      newDiv.append(p,image);
+      $("#imageDiv").prepend(newDiv);
+    }
+    $(document).on("click",".gif",function() {
+      if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+        state = "animate";
+      } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+        state = "still";
       }
-      $(document).on("click",".gif",function() {
-        if (state === "still") {
-          $(this).attr("src", $(this).attr("data-animate"));
-          $(this).attr("data-state", "animate");
-          state = "animate";
-        } else {
-          $(this).attr("src", $(this).attr("data-still"));
-          $(this).attr("data-state", "still");
-          state = "still";
-        }
-      })
     })
   })
+  
 });
 
 
