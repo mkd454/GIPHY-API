@@ -56,7 +56,7 @@ Bootstrap Portfolio link: <https://mkd454.github.io/Bootstrap-Portfolio/>
 
 - [x] Add a form to your page takes the value from a user input box and adds it into your `topics` array. Then make a function call that takes each topic in the array remakes the buttons on the page.
 
-- [ ] Deploy your assignment to Github Pages.
+- [x] Deploy your assignment to Github Pages.
 
 - [ ] Add project to portfolio page.
 
