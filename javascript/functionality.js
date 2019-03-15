@@ -6,8 +6,10 @@ $(document).ready(function() {
   $("#newTopicButton").on("click", function(e){
     e.preventDefault();
 
-    var newTopic = $(this);
-    console.log(newTopic);
+    var newTopic = $("#newTopic").val().trim();
+    topics.push(newTopic);
+    renderButtons(topics);
+    $("input").attr("value","");
   })
 
   //Create a button for every animal in the array
@@ -24,7 +26,7 @@ $(document).ready(function() {
   renderButtons(topics);
 
   // Obtain user button click value
-  $(".giphyButton").on("click", function(event) {
+  $(document).on("click", ".giphyButton", function(event) {
     event.preventDefault();
     var topic = $(this).val();
     $("#imageDiv").empty();

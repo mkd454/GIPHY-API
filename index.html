@@ -16,18 +16,28 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>GIPHY-API</title>
 </head>
-<body>
-
-  <div id="buttonDiv">
+<body class="p-3">
+  <!-- Title -->
+  <div class="jumbotron jumbotron-fluid p-1">
+    <div class="container">
+      <h1 class="display-4">Get A Giphy!</h1>
+      <p class="lead">This is an app that renders playable gifs for you to enjoy.</p>
+    </div>
+  </div>
+  
+  <!-- Categories -->
+  <div class="p-1">
+    <h2>Categories</h2>
+    <p>Choose or input your desired topic.</p>
+    <div id="buttonDiv"></div>
   </div>
 
-  <form>
-    <input type="text" class="form-control" id="newTopic">
-    <button type="button" id="newTopicButton">Submit New Category</button>
+  <form class="m-1 p-1">
+    <input type="text" class="form-control" id="newTopic" style="width: 300px;">
+    <button type="button" class="my-2" id="newTopicButton">Submit New Category</button>
   </form>
 
-  <div id="imageDiv">
-  </div>
+  <div id="imageDiv" class="d-flex"></div>
 
   <!-- Link jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
