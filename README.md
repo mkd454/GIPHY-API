@@ -4,7 +4,7 @@
 This is an app that renders playable gifs for the user to enjoy.
 
 ## Demo
-<img src='Get-a-giphy.png'><br> <--Update after putting in portfolio
+<img src='Get-a-giphy.png'><br>
 [Click here to start](https://mkd454.github.io/GIPHY-API/)
 
 ## Getting Started 
