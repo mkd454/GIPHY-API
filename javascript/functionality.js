@@ -26,23 +26,39 @@ $(document).ready(function() {
   }
 
   renderButtons(topics);
+  var numShow = 10;
 
   // Obtain user button click value
   $(document).on("click", ".giphyButton", function(event) {
     event.preventDefault();
     var topic = $(this).val();
     $("#imageDiv").empty();
+    numShow = 10;
+    obtainImages(topic);
 
+    numShow = 10;
+    console.log(numShow);
+    // Show ten more images
+    $(document).on("click", "#showMore", function(event) {
+      event.preventDefault();
+      numShow +=10;
+      $("#imageDiv").empty();
+      console.log(numShow);
+      obtainImages(topic);
+    })
+  })
+  
+  function obtainImages(topic) {
     // Obtain the images
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=QnzDlWk2f0g5uDP7pBQBvvPWePLlTqpi&q=" + topic + "&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=QnzDlWk2f0g5uDP7pBQBvvPWePLlTqpi&q=" + topic;
 
     $.ajax({
       url:queryURL,
       method: "GET"
     }).then(function(response) {
       var results = response.data;
-
-      for(var i=0;i<results.length;i++) {
+      console.log(results)
+      for(var i=0;i<numShow;i++) {
         var rating = results[i].rating;
         var stillImage = results[i].images.original_still.url;
         var animateImage = results[i].images.original.url;
@@ -56,11 +72,13 @@ $(document).ready(function() {
         image.attr("data-animate",animateImage);
         image.attr("data-state",state);
         image.attr("src", stillImage);
-        image.addClass("gif");
+        image.addClass("gif img-fluid");
 
         newDiv.append(p,image);
         $("#imageDiv").prepend(newDiv);
       }
+
+      // Still vs animate image
       $(document).on("click",".gif",function() {
         if (state === "still") {
           $(this).attr("src", $(this).attr("data-animate"));
@@ -73,7 +91,7 @@ $(document).ready(function() {
         }
       })
     })
-  })
+  }
 });
 
 

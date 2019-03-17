@@ -44,7 +44,7 @@ Bootstrap Portfolio link: <https://mkd454.github.io/Bootstrap-Portfolio/>
 * Thanks to The Coding Boot Camp at UT Austin
 
 ## Future Development
-- [ ] Make it mobile responsive.
+- [x] Make it mobile responsive.
 
 - [ ] Allow users to request additional gifs to be added to the page.
    * Each request should ADD 10 gifs to the page, NOT overwrite the existing gifs.
